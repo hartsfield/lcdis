@@ -1,0 +1,22 @@
+<div class='stream'>
+        {{ range $k, $v :=  .Stream }}
+        <div class='item-outer' onclick="window.location = '/view/{{$v.ID}}'">
+                <div class='next-lines'>
+                        <div class='item-part Title'>{{ $v.Title }}</div>
+                        <div class='item-part FileElement'><img src="{{ $v.TempFileName }}"/></div>
+                        <div class='item-part Article'>{{ $v.Article }}</div>
+                </div>
+        </div>
+        {{ end }}
+<style>{{ template "upload.css" . }}</style>
+<script>{{ template "upload.js" . }}</script>
+
+<form class="uploadForm" id='uploadForm' enctype='multipart/form-data'>
+        <input id='Title' type='text' name='Title'  placeholder='Title'/>
+        <textarea id='Article' type='text' name='Article' placeholder='Article'></textarea>
+        <input id='FileElement' type='file' name='FileElement'/>
+        <div onclick="submitPost()" value="submit" class="form-submit" >submit</div>
+</form>
+
+
+</div>
