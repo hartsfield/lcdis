@@ -8,6 +8,7 @@
         font-variation-settings:
         "wdth" 100;
         font-weight: 900;
+        color: black;
 }
 .ham-outer {
         display: flex;
@@ -16,24 +17,25 @@
         justify-content: space-evenly;
         margin-left: 1em;
         padding: 0.5em;
+        height: 4em;
 }
 
 .hamburger {
-    background-color: #cc5d10;
-    height: 0.4em;
-    width: 2.5em;
+        background-color: #cc5d10;
+        height: 0.4em;
+        width: 2.5em;
 }
 .county-svg {
-    background-image: url(public/media/cc.png);
-    height: 12em;
-    width: 3em;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: absolute;
-    top: -0.8em;
-    right: 3em;
-    filter: hue-rotate(47deg) saturate(1.5);
+        background-image: url(public/media/cc.png);
+        height: 12em;
+        width: 3em;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        /*position: absolute;*/
+        /*top: -0.8em;*/
+        /*right: 10em;*/
+        filter: hue-rotate(47deg) saturate(1.5);
 }
 .navbar-outer {
         display: inline-flex;
@@ -51,7 +53,6 @@
         "wdth" 100;
         background: #c76a44;
         color: white;
-
 }
 
 .logo-nav {
@@ -60,6 +61,18 @@
 }
 
 @media screen and (orientation:landscape) {
+        .logoMain {
+font-size: 3em;
+    text-align: center;
+    margin: 1.2em 0 1em 0;
+    font-family: "Noto Serif Display", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-weight: 900;
+    color: #4e3419;
+    position: absolute;
+        }
         .ham-outer {
                 display: none;
         }
@@ -89,13 +102,21 @@
         }
 }
 @media screen and (orientation:portrait) {
+        .logoMain {
+                font-size: 2em;
+        }
+        .county-svg {
+                /*right: 5em;*/
+                margin: 0em 1em 0 0;
+        }
         .navbar-outer {
-                padding-left: 1em;
-                position: fixed;
-                top: 3.3em;
-                height: 4em;
-                z-index: -10;
                 background: none;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                /* align-content: center; */
+                align-items: center;
+        height: 7em;
         }
         .logo-nav {
                 max-width: 75%;
@@ -105,12 +126,13 @@
                 display: none;
         }
         .nav-portrait {
-                position: absolute;
-                background-color: #7fc3e1;
+                position: fixed;
+                background-color: #23b7c1;
                 color: #ffffff;
                 height: 100vh;
-                padding: 1em 2em 1em 1em;
-                font-size: 1.5em;
+                padding: 2em 2em 1em 1em;
+                font-size: 1.3em;
+                top: 0;
         }
         .nav-portrait > ul {
                 list-style-type: none;

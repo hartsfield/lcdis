@@ -1,6 +1,6 @@
 let np = document.getElementById("nav-portrait");
-np.style.position = "absolute";
-np.style.right = "-" + np.offsetWidth + "px";
+np.style.position = "fixed";
+np.style.right = "-" + np.offsetWidth + 50 + "px";
 function showNavPortrait() {
     np.style.right = 0;
     setTimeout(function () {
