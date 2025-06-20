@@ -1,15 +1,15 @@
-.logoMain {
-        font-size: 3em;
-        text-align: center;
-        margin: 1em 0 1em 0;
-        font-family: "Noto Serif Display", serif;
-        font-optical-sizing: auto;
-        font-style: normal;
-        font-variation-settings:
-        "wdth" 100;
-        font-weight: 900;
-        color: black;
-}
+/*.logoMain {*/
+/*        font-size: 3em;*/
+/*        text-align: center;*/
+/*        margin: 1em 0 1em 0;*/
+/*        font-family: "Noto Serif Display", serif;*/
+/*        font-optical-sizing: auto;*/
+/*        font-style: normal;*/
+/*        font-variation-settings:*/
+/*        "wdth" 100;*/
+/*        font-weight: 900;*/
+/*        color: black;*/
+/*}*/
 .ham-outer {
         display: flex;
         flex-direction: column;
@@ -53,7 +53,7 @@
         "wdth" 100;
         background: #c76a44;
         color: white;
-        margin: 0 0 1.5em;
+        margin: 0 0 4.5em 0;
 }
 
 .logo-nav {
@@ -63,14 +63,14 @@
 
 /*@media screen and (orientation:landscape) {*/
 .logoMain {
-        font-size: 3em;
+        font-size: 2.8em;
         text-align: center;
-        margin: 1.2em 0 1em 0;
+        margin: 2em 3px 1em 3px;
         font-family: "Noto Serif Display", serif;
         font-optical-sizing: auto;
         font-style: normal;
         font-variation-settings: "wdth" 100;
-        font-weight: 900;
+        font-weight: 800;;
         color: #4e3419;
         position: absolute;
 }

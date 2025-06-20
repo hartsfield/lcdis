@@ -10,7 +10,7 @@ input, textarea {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: flex-start;
-        margin: 0.5em;
+        margin: 4.5em 0 0 0;
 }
 .uploadForm {
         display: flex;
@@ -57,7 +57,7 @@ input, textarea {
         justify-content: space-between;
         align-items: stretch;
         cursor: pointer;
-        margin: 4em 1.5em 0 0;
+        margin: 0.5em 0.75em;
 }
 .FileElement {
         border-radius: 0.4em;
@@ -72,6 +72,11 @@ input, textarea {
         flex-wrap: nowrap;
         align-items: stretch;
         justify-content: space-between;
+        padding: 0.5em;
+        border: 1px dashed #bd9553;
+        border-radius: 0.6em;
+        color: #755b2f;
+        box-shadow: 3px 4px 0px #f2e6d0;
 }
 .About {
         width: 100%;
