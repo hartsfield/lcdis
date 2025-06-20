@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"io"
 	"log"
@@ -9,19 +10,18 @@ import (
 	"os"
 	"slices"
 	"strings"
-        "time"
-        "bytes"
+	"time"
 )
 
 var stream []*item
 var itemsMap map[string]*item = make(map[string]*item)
 
 func itemView(id string) *item {
-        return itemsMap[id]
+	return itemsMap[id]
 }
 
 func uploadHandler(w http.ResponseWriter, r *http.Request) {
-        data := partFormData(r, w)
+	data := partFormData(r, w)
 	stream = append([]*item{data}, stream...)
 
 	b, err := json.Marshal(data)
@@ -29,12 +29,13 @@ func uploadHandler(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 	ajaxResponse(w, map[string]string{
-		"success": "true",
-		"replyID": data.ID,
-		"itemString":    string(b),
+		"success":    "true",
+		"replyID":    data.ID,
+		"itemString": string(b),
 	})
 	saveJSON()
 }
+
 func partFormData(r *http.Request, w http.ResponseWriter) *item {
 	mr, err := r.MultipartReader()
 	if err != nil {
@@ -43,29 +44,28 @@ func partFormData(r *http.Request, w http.ResponseWriter) *item {
 
 	var data *item = &item{ID: genPostID(10)}
 
-        for {
-                part, err_part := mr.NextPart()
-                if err_part == io.EOF {
-                        break
-                }
-                if part.FormName() == "FileElement" {
-                        handleFile(w, part, data)
-                }
-                if part.FormName() == "Title" {
-                        buf := new(bytes.Buffer)
-                        buf.ReadFrom(part)
-                        data.Title = buf.String()
-                }
-                
-                if part.FormName() == "Article" {
-                        buf := new(bytes.Buffer)
-                        buf.ReadFrom(part)
-                        data.Article = buf.String()
-                }
-                
-        }
-        return data
+	for {
+		part, err_part := mr.NextPart()
+		if err_part == io.EOF {
+			break
+		}
+		if part.FormName() == "FileElement" {
+			handleFile(w, part, data)
+		}
+		if part.FormName() == "Title" {
+			buf := new(bytes.Buffer)
+			buf.ReadFrom(part)
+			data.Title = buf.String()
+		}
+		if part.FormName() == "Article" {
+			buf := new(bytes.Buffer)
+			buf.ReadFrom(part)
+			data.Article = buf.String()
+		}
+	}
+	return data
 }
+
 func handleFile(w http.ResponseWriter, part *multipart.Part, data *item) {
 	fileBytes, err := io.ReadAll(io.LimitReader(part, 10<<20))
 	if err != nil {
@@ -109,6 +109,7 @@ func init() {
 		log.Println(err)
 	}
 }
+
 func readDB() {
 	content, err := os.ReadFile("JSON_DB.json")
 	if err != nil {
@@ -125,10 +126,10 @@ func readDB() {
 		slices.Reverse(items)
 
 		// stream = append(stream, items...)
-                stream = items
-                for _, item := range stream {
-                        itemsMap[item.ID] = item
-                }
+		stream = items
+		for _, item := range stream {
+			itemsMap[item.ID] = item
+		}
 	}
 }
 
@@ -153,15 +154,15 @@ func saveJSON() {
 		log.Println(err)
 	}
 
-        readDB()
-}
-type item struct {
-        FileElement	string	`json:"FileElement"`
-        Title	string	`json:"Title"`
-        Article	string	`json:"Article"`
-        ID	string `json:"ID"`
-        TS	time.Time `json:"TS"`
-        MediaType	string	`json:"mediaType"`
-        TempFileName	string	`json:"tempFileName"`
+	readDB()
 }
 
+type item struct {
+	FileElement  string    `json:"FileElement"`
+	Title        string    `json:"Title"`
+	Article      string    `json:"Article"`
+	ID           string    `json:"ID"`
+	TS           time.Time `json:"TS"`
+	MediaType    string    `json:"mediaType"`
+	TempFileName string    `json:"tempFileName"`
+}
