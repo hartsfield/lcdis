@@ -30,9 +30,13 @@ input, textarea {
         font-family: "Noto Serif Display", serif;
         font-optical-sizing: auto;
         font-style: normal;
-        font-variation-settings:
-        "wdth" 100;
-        padding: 1em 0;
+        font-variation-settings: "wdth" 100;
+        padding: 0em 0 1em;
+        height: 5em;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
 }
 .form-submit {
         text-align: center;
@@ -52,23 +56,20 @@ input, textarea {
         justify-content: space-between;
         align-items: stretch;
         cursor: pointer;
-}
-.FileElement > img {
-        width: 100%;
-        border-radius: 0.4em;
+font-weight: 900}
+.FileElement {
+     border-radius: 0.4em;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .next-lines {
-        /*margin-top: 0.8rem;*/
-        /*display: flex;*/
-        /*flex-direction: row;*/
-        /*flex-wrap: wrap;*/
-        /*justify-content: space-around;*/
-        /*background: #e06767;*/
-        /*color: #e8e8e8;*/
-        /*padding: 0.6em;*/
-        /*border-radius: 0.3em;*/
-        /*font-size: 0.9em;*/
-        /*align-items: center;*/
+display: flex;
+    height: 20em;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: space-between;
 }
 .About {
         width: 100%;
@@ -76,9 +77,10 @@ input, textarea {
 @media screen and (orientation:landscape) {
         body, html {
                 /*max-width: 80ch;*/
+align-items: center;
         }
         .stream {
-                /*max-width: 80ch;*/
+                max-width: 100ch;
         }
 }
 

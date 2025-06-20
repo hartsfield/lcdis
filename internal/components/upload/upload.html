@@ -3,8 +3,7 @@
         <div class='item-outer' onclick="window.location = '/view/{{$v.ID}}'">
                 <div class='next-lines'>
                         <div class='item-part Title'>{{ $v.Title }}</div>
-                        <div class='item-part FileElement'><img src="{{ $v.TempFileName }}"/></div>
-                        <div class='item-part Article'>{{ $v.Article }}</div>
+                        <div class='item-part FileElement' style="background-image: url(/{{ $v.TempFileName }})"></div>
                 </div>
         </div>
         {{ end }}

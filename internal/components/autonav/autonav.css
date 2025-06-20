@@ -32,7 +32,7 @@
     background-position: center;
     position: absolute;
     top: -0.8em;
-    left: 9em;
+    right: 3em;
     filter: hue-rotate(47deg) saturate(1.5);
 }
 .navbar-outer {
