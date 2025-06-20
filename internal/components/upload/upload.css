@@ -85,4 +85,13 @@ input, textarea {
                 max-width: 100ch;
         }
 }
+@media screen and (orientation:portrait) {
+        .stream {
+                max-width: 100ch;
+                font-size: 0.8em;
+        }
+        .stream > div {
+                width: 40%;
+        }
+}
 

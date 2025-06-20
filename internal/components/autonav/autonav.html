@@ -1,38 +1,26 @@
 <div class="navbar-outer">
-
         <div class="nav-landscape">
                 <ul>
-
                         <li onclick="jumpTo('opinion-outer')">opinion</li>
                         <li onclick="jumpTo('politics-outer')">politics</li>
                         <li onclick="jumpTo('commerce-outer')">commerce</li>
                         <li onclick="jumpTo('liberty-outer')">liberty</li>
-
                 </ul>
         </div>
-
         <div class="nav-portrait" id="nav-portrait">
                 <div class="nav-portrait-logo">{{ .AppName }}</div>
                 <ul>
-
                         <li onclick="jumpTo('opinion-outer')">opinion</li>
                         <li onclick="jumpTo('politics-outer')">politics</li>
                         <li onclick="jumpTo('commerce-outer')">commerce</li>
                         <li onclick="jumpTo('liberty-outer')">liberty</li>
-
                 </ul>
         </div>
-
         <div class="ham-outer" onclick="showNavPortrait()">
-                <div class="hamburger"></div>
-                <div class="hamburger"></div>
-                <div class="hamburger"></div>
+                <div class="county-svg"></div>
         </div>
-
-
-<div class="logoMain">{{.AppName}}</div>
+        <div class="logoMain">{{.AppName}}</div>
         <style>{{ template "autonav.css" }}</style>
         <script>{{ template "autonav.js"}}</script>
 
-<div class="county-svg"></div>
 </div>
